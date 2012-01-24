@@ -1,0 +1,15 @@
+name: SchemeIn48h
+version: 0.0.1
+cabal-version: >= 1.2
+build-type: Simple
+license: OtherLicense
+license-file: "license"
+
+Executable schemeIn48h
+    build-depends:  base -any
+    main-is: schemeIn48h.hs
+    other-modules:
+    buildable: True
+    hs-source-dirs: src
+    ghc-options: -Wall -threaded
+
