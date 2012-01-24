@@ -6,7 +6,8 @@ license: OtherLicense
 license-file: "license"
 
 Executable schemeIn48h
-    build-depends:  base -any
+    build-depends:  base -any,
+                    parsec >= 2.0.1.0
     main-is: schemeIn48h.hs
     other-modules:
     buildable: True

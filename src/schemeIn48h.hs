@@ -1,9 +1,10 @@
 module Main where
 
 import System.Environment
+import SchemeIn48h.Parser
 
 main :: IO ()
 main = do
     args <- getArgs
-    putStrLn $ args !! 0
+    putStrLn $ readExpr $ args !! 0
 
