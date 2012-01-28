@@ -7,7 +7,7 @@ import Control.Monad (liftM)
 import Numeric (readHex, readOct)
 
 symbol :: Parser Char
-symbol = oneOf "!$%&|*+-/:<=?>@^_~#"
+symbol = oneOf "!$%&|*+-/:<=?>@^_~"
 
 spaces :: Parser ()
 spaces = skipMany1 space
@@ -25,10 +25,10 @@ escapedChars = do
     x <- oneOf "\\\"ntr"
     case x of
         '\\' -> do return [x]
-        '"' -> do return [x]
-        't' -> do return "\t"
-        'n' -> do return "\n"
-        'r' -> do return "\r"
+        '"'  -> do return [x]
+        't'  -> do return "\t"
+        'n'  -> do return "\n"
+        'r'  -> do return "\r"
 
 parseString :: Parser LispVal
 parseString = do
@@ -40,7 +40,7 @@ parseString = do
 parseAtom :: Parser LispVal
 parseAtom = do
     first <- letter <|> symbol
-    rest <- many (letter <|> digit <|> symbol)
+    rest  <- many (letter <|> digit <|> symbol)
     let atom = [first] ++ rest
     return $ case atom of
                 "#t" -> Bool True
@@ -99,7 +99,14 @@ parseBin = do
     b <- many1 $ oneOf "10"
     return $ Number $ bin2dig b
 
-bin2dig = undefined
+bin2dig :: [Char] -> Integer
+bin2dig = bin2dig' 0
+
+bin2dig' :: Num a => a -> [Char] -> a
+bin2dig' digint "" = digint
+bin2dig' digint (x:xs) =
+    let old = 2 * digint + (if x == '0' then 0 else 1)
+    in bin2dig' old xs
 
 parseExpr :: Parser LispVal
 parseExpr =

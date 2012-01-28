@@ -2,8 +2,8 @@ Repo of my walkthrough of the Haskell Wikibook "[Write Yourself a Scheme in 48 H
 
 The book is included as .pdf and the code should compile at every commit.. i hope ;)
 
-Build
-___
+**Build**
+
     git clone git://github.com/mugenken/schemeIn48h.git
     cd schemeIn48h
     cabal configure
