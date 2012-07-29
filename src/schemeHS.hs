@@ -1,10 +1,9 @@
 module Main where
 
 import System.Environment
-import SchemeIn48h.Parser
+import SchemeHS.Parser
 
 main :: IO ()
-main = do
-    args <- getArgs
-    putStrLn $ readExpr $ args !! 0
+main = do expression <- getArgs
+          putStrLn ( readExpr (expression !! 0))
 

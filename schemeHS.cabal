@@ -1,0 +1,24 @@
+name: schemeHS
+version: 0.0.1
+cabal-version: >=1.2
+build-type: Simple
+license: AllRightsReserved
+license-file: ""
+synopsis: A Scheme interpreter
+data-dir: ""
+
+executable schemeHS
+    build-depends: QuickCheck -any, base -any, parsec >=2.1.0.1
+    main-is: schemeHS.hs
+    buildable: True
+    hs-source-dirs: src
+    other-modules: SchemeHS.Parser.Bools SchemeHS.Parser.Numbers
+                   SchemeHS.Parser.Types SchemeHS.Parser
+
+test-suite test-schemeHS
+    build-depends: QuickCheck -any, base -any, parsec >=2.1.0.1
+    type: exitcode-stdio-1.0
+    main-is: schemeHS.hs
+    buildable: True
+    cpp-options: -DMAIN_FUNCTION=testMain
+    hs-source-dirs: src
