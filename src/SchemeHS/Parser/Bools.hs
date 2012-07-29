@@ -26,4 +26,3 @@ parseLispBool = do
     return $ case x of
         't' -> LispBool True
         'f' -> LispBool False
-
