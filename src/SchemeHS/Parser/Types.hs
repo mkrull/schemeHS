@@ -23,4 +23,5 @@ data LispVal = LispAtom String
              | LispString String
              | LispBool Bool
              | LispChar Char
+             | LispFloat Double
              deriving (Show)

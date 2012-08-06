@@ -18,22 +18,23 @@ module SchemeHS.Parser.Numbers (
 
 import Text.ParserCombinators.Parsec
 import SchemeHS.Parser.Types
-import Numeric (readHex, readOct)
+import Numeric (readHex, readOct, readFloat)
 
 parseLispNumber :: Parser LispVal
 parseLispNumber = do
-    num <- parseNumber
-           <|> parseDigital2
+    num <- try parseLispFloat
+           <|> parseDigital
+           <|> parseDigitalPrefix
            <|> parseHex
            <|> parseOct
            <|> parseBin
     return $ num
 
-parseNumber :: Parser LispVal
-parseNumber = many1 digit >>= (return . LispNumber . read)
+parseDigital :: Parser LispVal
+parseDigital = many1 digit >>= (return . LispNumber . read)
 
-parseDigital2 :: Parser LispVal
-parseDigital2 = do
+parseDigitalPrefix :: Parser LispVal
+parseDigitalPrefix = do
     _ <- try $ string "#d"
     many1 digit >>= (return . LispNumber . read)
 
@@ -67,3 +68,9 @@ bin2dig' digint "" = digint
 bin2dig' digint (x:xs) =
     let old = 2 * digint + (if x == '0' then 0 else 1)
     in bin2dig' old xs
+
+parseLispFloat :: Parser LispVal
+parseLispFloat = do x <- many1 digit
+                    _ <- char '.'
+                    y <- many1 digit
+                    return $ LispFloat $ fst $ head $ readFloat $ x ++ "." ++ y
