@@ -12,8 +12,8 @@ executable schemeHS
     main-is: schemeHS.hs
     buildable: True
     hs-source-dirs: src
-    other-modules: SchemeHS.Parser.Bools SchemeHS.Parser.Numbers
-                   SchemeHS.Parser.Types SchemeHS.Parser
+    other-modules: SchemeHS.Parser.Strings SchemeHS.Parser.Bools
+                   SchemeHS.Parser.Numbers SchemeHS.Parser.Types SchemeHS.Parser
 
 test-suite test-schemeHS
     build-depends: QuickCheck -any, base -any, parsec >=2.1.0.1
