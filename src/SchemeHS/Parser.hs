@@ -31,7 +31,7 @@ spaces = skipMany1 space
 parseLispAtom :: Parser LispVal
 parseLispAtom = do first <- letter <|> symbol
                    rest <- many (letter <|> digit <|> symbol)
-                   let atom = [first] ++ rest
+                   let atom = first:rest
                    return $ LispAtom atom
 
 parseExpr ::  Parser LispVal

@@ -5,5 +5,5 @@ import SchemeHS.Parser
 
 main :: IO ()
 main = do expression <- getArgs
-          putStrLn ( readExpr (expression !! 0))
+          putStrLn $ readExpr $ head expression
 

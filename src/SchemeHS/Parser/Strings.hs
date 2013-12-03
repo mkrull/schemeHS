@@ -30,11 +30,11 @@ escapedChars :: Parser String
 escapedChars = do char '\\'
                   char <- oneOf "\\\"ntr"
                   case char of
-                     '\\' -> do return [char]
-                     '"' -> do return [char]
-                     't' -> do return "\t"
-                     'n' -> do return "\n"
-                     'r' -> do return "\r"
+                     '\\' -> return [char]
+                     '"' -> return [char]
+                     't' -> return "\t"
+                     'n' -> return "\n"
+                     'r' -> return "\r"
 
 parseLispChar :: Parser LispVal
 parseLispChar = do _ <- try $ string "#\\"
@@ -44,5 +44,5 @@ parseLispChar = do _ <- try $ string "#\\"
 parseCharName :: GenParser Char st Char
 parseCharName = do charname <- try (string "space" <|> string "newline")
                    case charname of
-                            "space" -> do return ' '
-                            "newline" -> do return '\n'
+                            "space" -> return ' '
+                            "newline" -> return '\n'
