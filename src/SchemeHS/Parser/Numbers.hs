@@ -16,9 +16,9 @@ module SchemeHS.Parser.Numbers (
     parseLispNumber
 ) where
 
-import Text.ParserCombinators.Parsec
-import SchemeHS.Parser.Types
-import Numeric (readHex, readOct, readFloat)
+import           Numeric                       (readFloat, readHex, readOct)
+import           SchemeHS.Parser.Types
+import           Text.ParserCombinators.Parsec
 
 parseLispNumber :: Parser LispVal
 parseLispNumber = try parseLispFloat

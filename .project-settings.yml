@@ -2,20 +2,9 @@ module-template: ! 'module MODULE_NAME where
 
 '
 extensions: {}
-environment: null
+environment: ghc-7.8-stable-14.09
 cabal-file: project.cabal
-modules:
-  Main(src/schemeHS.hs):
-    filename: src/schemeHS.hs
-  SchemeHS.Parser.Strings:
-    filename: src/SchemeHS/Parser/Strings.hs
-  SchemeHS.Parser.Types:
-    filename: src/SchemeHS/Parser/Types.hs
-  SchemeHS.Parser.Bools:
-    filename: src/SchemeHS/Parser/Bools.hs
-  SchemeHS.Parser:
-    filename: src/SchemeHS/Parser.hs
-  SchemeHS.Parser.Numbers:
-    filename: src/SchemeHS/Parser/Numbers.hs
 version: 1
+extra-packages: ''
 ghc-args: []
+excluded-modules: []

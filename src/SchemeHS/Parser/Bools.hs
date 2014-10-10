@@ -16,8 +16,8 @@ module SchemeHS.Parser.Bools (
     parseLispBool
 ) where
 
-import Text.ParserCombinators.Parsec
-import SchemeHS.Parser.Types
+import           SchemeHS.Parser.Types
+import           Text.ParserCombinators.Parsec
 
 parseLispBool :: Parser LispVal
 parseLispBool = do

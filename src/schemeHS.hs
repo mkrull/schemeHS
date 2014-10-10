@@ -1,9 +1,11 @@
 module Main where
 
-import System.Environment
-import SchemeHS.Parser
+import           SchemeHS.Parser    (readExpr)
+import           System.Environment (getArgs)
+import           System.IO          (readFile)
 
 main :: IO ()
-main = do expression <- getArgs
-          putStrLn $ readExpr $ head expression
-
+main = do
+    args <- getArgs
+    content <- readFile $ head args
+    putStrLn $ readExpr content

@@ -17,8 +17,8 @@ module SchemeHS.Parser.Strings (
     parseLispChar
 ) where
 
-import SchemeHS.Parser.Types
-import Text.ParserCombinators.Parsec
+import           SchemeHS.Parser.Types
+import           Text.ParserCombinators.Parsec
 
 parseLispString :: Parser LispVal
 parseLispString = do char '"'

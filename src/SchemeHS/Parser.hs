@@ -16,11 +16,11 @@ module SchemeHS.Parser (
     readExpr
 ) where
 
-import Text.ParserCombinators.Parsec hiding (spaces)
-import SchemeHS.Parser.Types
-import SchemeHS.Parser.Numbers
-import SchemeHS.Parser.Bools
-import SchemeHS.Parser.Strings
+import           SchemeHS.Parser.Bools
+import           SchemeHS.Parser.Numbers
+import           SchemeHS.Parser.Strings
+import           SchemeHS.Parser.Types
+import           Text.ParserCombinators.Parsec hiding (spaces)
 
 symbol :: Parser Char
 symbol = oneOf "!$%&|*+-/:<=?>@^_~"

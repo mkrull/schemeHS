@@ -4,14 +4,14 @@ The book is included as .pdf and the code should compile at every commit.. i hop
 
 **Build**
 
-    git clone git://github.com/mugenken/schemeHS.git
+    git clone git://github.com/mkrull/schemeHS.git
     cd schemeHS
     cabal configure
     cabal build
 
 **Install**
 
-    git clone git://github.com/mugenken/schemeHS.git
+    git clone git://github.com/mkrull/schemeHS.git
     cd schemeHS
     cabal install
 
