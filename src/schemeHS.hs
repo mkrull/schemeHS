@@ -9,4 +9,4 @@ main :: IO ()
 main = do
     args <- getArgs
     content <- readFile $ head args
-    putStrLn $ show $ evalLisp $ readExpr content
+    print $ evalLisp $ readExpr content

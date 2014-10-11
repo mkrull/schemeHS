@@ -2,6 +2,7 @@ module SchemeHS.Parser.Numbers (
     parseLispNumber
 ) where
 
+import           Control.Monad                 (liftM)
 import           Numeric                       (readFloat, readHex, readOct)
 import           SchemeHS.Types
 import           Text.ParserCombinators.Parsec
@@ -15,12 +16,12 @@ parseLispNumber = try parseLispFloat
            <|> parseBin
 
 parseDigital :: Parser LispVal
-parseDigital = many1 digit >>= (return . LispNumber . read)
+parseDigital = liftM (LispNumber . read) (many1 digit)
 
 parseDigitalPrefix :: Parser LispVal
 parseDigitalPrefix = do
     _ <- try $ string "#d"
-    many1 digit >>= (return . LispNumber . read)
+    liftM (LispNumber . read) (many1 digit)
 
 parseHex :: Parser LispVal
 parseHex = do _ <- try $ string "#x"

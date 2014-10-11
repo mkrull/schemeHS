@@ -19,10 +19,10 @@ primitives :: [(String, [LispVal] -> LispVal)]
 primitives = [("+", numericBinop (+)),
               ("-", numericBinop (-)),
               ("*", numericBinop (*)),
-              ("/", numericBinop (div)),
-              ("mod", numericBinop (mod)),
-              ("quotient", numericBinop (quot)),
-              ("remainder", numericBinop (rem))]
+              ("/", numericBinop div),
+              ("mod", numericBinop mod),
+              ("quotient", numericBinop quot),
+              ("remainder", numericBinop rem)]
 
 numericBinop :: (Integer -> Integer -> Integer) -> [LispVal] -> LispVal
 numericBinop op params = LispNumber $ foldl1 op $ map unpackNum params

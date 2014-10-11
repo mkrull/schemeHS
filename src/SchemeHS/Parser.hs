@@ -30,7 +30,7 @@ parseExpr =  parseLispAtom
          <|> parseQuoted
          <|> do
              char '('
-             x <- (try parseLispList) <|> parseLispDottedList
+             x <- try parseLispList <|> parseLispDottedList
              char ')'
              return x
 
