@@ -1,23 +1,9 @@
------------------------------------------------------------------------------
---
--- Module      :  SchemeHS.Parser.Strings
--- Copyright   :
--- License     :  AllRightsReserved
---
--- Maintainer  :
--- Stability   :
--- Portability :
---
--- |
---
------------------------------------------------------------------------------
-
 module SchemeHS.Parser.Strings (
     parseLispString,
     parseLispChar
 ) where
 
-import           SchemeHS.Parser.Types
+import           SchemeHS.Types
 import           Text.ParserCombinators.Parsec
 
 parseLispString :: Parser LispVal

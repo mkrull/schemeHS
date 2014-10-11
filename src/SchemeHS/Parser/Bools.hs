@@ -1,22 +1,8 @@
------------------------------------------------------------------------------
---
--- Module      :  SchemeHS.Parser.Bools
--- Copyright   :
--- License     :  AllRightsReserved
---
--- Maintainer  :
--- Stability   :
--- Portability :
---
--- |
---
------------------------------------------------------------------------------
-
 module SchemeHS.Parser.Bools (
     parseLispBool
 ) where
 
-import           SchemeHS.Parser.Types
+import           SchemeHS.Types
 import           Text.ParserCombinators.Parsec
 
 parseLispBool :: Parser LispVal

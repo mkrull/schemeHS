@@ -1,1 +1,1 @@
-(asdf "somestring" 'quoted (+ 2 2) (1 . 3) (#t #f))
+(+ 2 2)

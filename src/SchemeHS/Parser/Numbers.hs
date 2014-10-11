@@ -1,23 +1,9 @@
------------------------------------------------------------------------------
---
--- Module      :  SchemeHS.Parser.Numbers
--- Copyright   :
--- License     :  AllRightsReserved
---
--- Maintainer  :
--- Stability   :
--- Portability :
---
--- |
---
------------------------------------------------------------------------------
-
 module SchemeHS.Parser.Numbers (
     parseLispNumber
 ) where
 
 import           Numeric                       (readFloat, readHex, readOct)
-import           SchemeHS.Parser.Types
+import           SchemeHS.Types
 import           Text.ParserCombinators.Parsec
 
 parseLispNumber :: Parser LispVal
